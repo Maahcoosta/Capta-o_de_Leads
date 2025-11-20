@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmação</title>
+</head>
+<body>
+    <h1>🎉 Solicitação Enviada!</h1>
+    <p>Obrigado! Sua solicitação foi para análise.</p>
+    <p>O ID da sua solicitação é: <strong id="solicitacao_id"></strong></p>
+    <p>Um de nossos atendentes entrará em contato com você o mais breve possível.</p>
+
+    <script>
+        // Pega o ID da URL (que foi enviado pelo server.js no redirecionamento)
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        
+        if (id) {
+            document.getElementById('solicitacao_id').textContent = id;
+        }
+    </script>
+</body>
+</html>

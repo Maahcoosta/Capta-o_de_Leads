@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulação de Empréstimo</title>
+</head>
+<body>
+    <h1>Simulação de Empréstimo</h1>
+    
+    <form action="/solicitar" method="POST">
+        <h2>Passo 1: Seus Dados</h2>
+        <label for="nome">Nome:</label><input type="text" name="nome" required><br>
+        <label for="telefone">Telefone:</label><input type="tel" name="telefone" required><br>
+        <label for="cpf">CPF:</label><input type="text" name="cpf" required><br>
+        
+        <label for="categoria">Categoria:</label>
+        <select name="categoria" required>
+            <option value="">Selecione...</option>
+            <option value="INSS">Aposentado/Beneficiário INSS</option>
+            <option value="Federal">Servidor Público Federal</option>
+            <option value="Estadual">Servidor Público Estadual</option>
+            <option value="Municipal">Servidor Público Municipal</option>
+        </select><br>
+        
+        <label for="num_beneficio">Nº do Benefício/Matrícula:</label>
+        <input type="text" name="num_beneficio"><br>
+
+        <hr>
+
+        <h2>Passo 2: Sua Simulação</h2>
+        <label for="valor_interesse">Valor de Interesse (R$):</label>
+        <input type="number" id="valor_interesse" name="valor_interesse" oninput="calcularParcela()" required><br>
+        
+        <label for="prazo">Prazo (meses):</label>
+        <input type="number" id="prazo" name="prazo" min="12" max="96" oninput="calcularParcela()" required><br>
+        
+        <label for="valor_parcela">Parcela Sugerida (R$):</label>
+        <input type="text" id="valor_parcela" name="valor_parcela" readonly required><br>
+        
+        <button type="submit">Enviar para Análise</button>
+    </form>
+    
+    <script src="script.js"></script>
+</body>
+</html>
